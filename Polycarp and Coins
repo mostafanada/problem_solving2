@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+int main()
+{
+    ll t;cin>>t;
+    while(t--)
+    {
+        ll temp,n,c1,c2;cin>>n;
+        ll n1,n2;
+        n2=(floor(n/3.0));
+        n1=(ceil(n/3.0));
+        if(n2*2+n1==n)
+        {
+            c1=n1;
+            c2=n2;
+        }
+        else
+        {
+            c2=n1;
+            c1=n2;
+        }
+        cout<<c1<<" "<<c2<<"\n";
+    }
+    return 0;
+}
