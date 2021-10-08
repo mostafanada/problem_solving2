@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int z;
+    cin>>z;
+    while(z--)
+    {
+        string a;
+        cin>>a;
+        map<char,int>b;
+        int res=0;
+        for(int i=0; i<a.size(); i++)
+        {
+            if(b[a[i]]<2)
+            {
+                res++;
+                b[a[i]]++;
+            }
+        }
+        cout<<res/2<<endl;
+    }
+}
