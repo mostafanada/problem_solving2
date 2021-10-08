@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+vector<vector<int>>v(50006),emptyv(50006);
+int vis[50006],vid;
+int ans,maxi;
+int n,m;
+int dfs(int node)
+{
+    vis[node]=vid;
+    ans++;
+    for(auto i:v[node])
+        if(vis[i]!=vid)
+            dfs(i);
+    return ans;
+}
+int conncted(int node=1)
+{
+    maxi=dfs(node);
+    for(int i=1; i<=n; i++)
+    {
+        if(vis[i]!=1)
+            {ans=0;maxi=max(dfs(i),maxi);}
+    }
+    return maxi;
+}
+int main()
+{
+    int t;cin>>t;
+    while(t--)
+    {
+        cin>>n>>m;
+        for(int i=0;i<m;i++)
+        {
+            int u,c;cin>>u>>c;
+            v[c].push_back(u);
+            v[u].push_back(c);
+        }
+        vid++;
+        ans=0;
+        cout<<conncted()<<"\n";
+        v=emptyv;
+    }
+    return 0;
+}
